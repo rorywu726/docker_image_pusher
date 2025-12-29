@@ -1,4 +1,3 @@
-swerebench/sweb.eval.x86_64.armmbed_1776_greentea-237
 swerebench/sweb.eval.x86_64.armmbed_1776_greentea-243
 swerebench/sweb.eval.x86_64.armmbed_1776_greentea-250
 swerebench/sweb.eval.x86_64.armmbed_1776_greentea-263
