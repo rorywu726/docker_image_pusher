@@ -106,7 +106,13 @@ jobs:
 
               image_name_tag="${image_name_tag%%@*}"
               new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$name_space_prefix$image_name_tag"
-
+              
+              
+              if docker manifest inspect "$new_image" > /dev/null 2>&1; then
+                  echo "Image $new_image already exists on Aliyun. Skipping."
+                  docker rmi "$line" || true   # 清理本地源镜像
+                  continue
+              fi
               echo "Tagging and pushing $new_image..."
               docker tag "$image" "$new_image"
               docker push "$new_image"
